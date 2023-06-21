@@ -2,22 +2,23 @@ package repoutils
 
 import (
 	_ "database/sql" // to get init()
-	D "github.com/fbaube/dsmnd"
-	L "github.com/fbaube/mlog"
-	// _ "github.com/mattn/go-sqlite3" // to get init()
-	S "strings"
+	// D "github.com/fbaube/dsmnd"
+	// L "github.com/fbaube/mlog"
+	// S "strings"
 )
 
-func (tc *TableConfig) StmtCreateAppTable() string {
+/*
+
+func (tc *TableDescriptor) StmtCreateAppTable() string {
 
 	var CTS string // the Create Table SQL string
 	var hasFKs bool
 	hasFKs = (tc.ForenKeys != nil && len(tc.ForenKeys) > 0)
 
 	// === CREATE TABLE
-	CTS = "CREATE TABLE " + tc.TableName + "(\n"
+	CTS = "CREATE TABLE " + tc.Name + "(\n"
 	// == PRIMARY KEY
-	CTS += "idx_" + tc.TableName + " integer not null primary key autoincrement, "
+	CTS += "idx_" + tc.Name + " integer not null primary key autoincrement, "
 	CTS += "-- NOTE: integer, not int. \n"
 	if hasFKs {
 		// === FOREIGN KEYS
@@ -53,7 +54,7 @@ func (tc *TableConfig) StmtCreateAppTable() string {
 			default: // case -1:
 				CTS += ", \n"
 			}
-			*/
+			* /
 			CTS += ", \n"
 		case D.TEXT:
 			CTS += fld.StorName + " text not null check " +
@@ -80,12 +81,13 @@ func (tc *TableConfig) StmtCreateAppTable() string {
 	return CTS
 
 	/* write file w SQL to create table
-	fnam := "./create-table-" + tc.TableName + ".sql"
+	fnam := "./create-table-" + tc.Name + ".sql"
 	e := ioutil.WriteFile(fnam, []byte(CTS), 0644)
 	if e != nil {
 		L.L.Error("Could not write file: " + fnam)
 	} else {
-		L.L.Dbg("Wrote \"CREATE TABLE " + tc.TableName + " ... \" to: " + fnam)
+		L.L.Dbg("Wrote \"CREATE TABLE " + tc.Name + " ... \" to: " + fnam)
 	}
-	*/
+	* /
 }
+*/

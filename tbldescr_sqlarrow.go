@@ -3,8 +3,17 @@ package repoutils
 import (
 	"fmt"
 	D "github.com/fbaube/dsmnd"
-	FU "github.com/fbaube/fileutils"
+	// FU "github.com/fbaube/fileutils"
 )
+
+/*
+var TableSummary_ContentityRow = D.TableSummary{
+var TableDescriptor_ContentityRow = TableDescriptor{
+func (cro *ContentityRow) PtrFields() []any { // barfs on []db.PtrFields
+var ColumnSpecs_ContentityRow = []D.ColumnSpec{
+type ContentityRow struct {
+func (p *ContentityRow) String() string {
+*/
 
 // SqlarRow gas structure defined by SQLite.
 type SqlarRow struct {
@@ -39,10 +48,10 @@ var ColumnSpecs_SqlarRow = []D.ColumnSpec{
 
 // TableDescriptor_SqlarRow specifies TBS.
 var TableDescriptor_SqlarRow = TableDescriptor{
-	"sqlar",
-	/* OBS
-	// One foreign key
-	[]string{"inbatch"},
-	*/
-	ColumnSpecs_SqlarRow,
+	"sqlar",     // Name
+	"sqlar",     // ShortName
+	"idx_sqlar", // IDName
+	"FIXME",     // ColumnNames
+	//
+	ColumnSpecs_SqlarRow, // []D.ColumnSpec
 }
